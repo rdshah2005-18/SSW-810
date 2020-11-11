@@ -148,9 +148,9 @@ class University:
         print(pretty)
 
 
-# def main():
-#     SIT: University = University(
-#         "/Users/rdshah2005/Desktop/SSW810/Assignment9")
+def main():
+    SIT: University = University(
+        "/Users/rdshah2005/Desktop/SSW810/Assignment9/SSW-810")
 
 
-# main()
+main()
