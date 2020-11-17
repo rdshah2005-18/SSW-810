@@ -1,0 +1,5 @@
+Major	Required/Elective	Course
+SFEN	R	SSW 540
+SFEN	R	SSW 564
+SYEN	E	SSW 565
+SYEN	E	SSW 540

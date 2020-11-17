@@ -1,6 +1,6 @@
 import unittest
 from typing import List, Dict
-from HW09_Rohan_Shah import Student, Instructor,  University
+from Student_Repository_Rohan_Shah import Student, Instructor,  University, Major
 
 
 class System_Repo_Test(unittest.TestCase):
@@ -10,12 +10,15 @@ class System_Repo_Test(unittest.TestCase):
         """ Test function to check if student records have been stored correctly """
         SIT: University = University(
             "/Users/rdshah2005/Desktop/SSW810/Assignment9/SSW-810")
-        expected_result: List[str] = [['10103', 'Baldwin, C', 'SFEN', ['CS 501', 'SSW 564', 'SSW 567', 'SSW 687']], ['10115', 'Wyatt, X', 'SFEN', ['CS 545', 'SSW 564', 'SSW 567', 'SSW 687']], ['10172', 'Forbes, I', 'SFEN', ['SSW 555', 'SSW 567']], ['10175', 'Erickson, D', 'SFEN', ['SSW 564', 'SSW 567', 'SSW 687']], [
-            '10183', 'Chapman, O', 'SFEN', ['SSW 689']], ['11399', 'Cordova, I', 'SYEN', ['SSW 540']], ['11461', 'Wright, U', 'SYEN', ['SYS 611', 'SYS 750', 'SYS 800']], ['11658', 'Kelly, P', 'SYEN', ['SSW 540']], ['11714', 'Morton, A', 'SYEN', ['SYS 611', 'SYS 645']], ['11788', 'Fuller, E', 'SYEN', ['SSW 540']]]
+        expected_result: List[str] = [['10103', 'Baldwin, C', 'SFEN', ['CS 501', 'SSW 564', 'SSW 567', 'SSW 687'], ['SSW 540', 'SSW 555', 'SSW 564', 'SSW 567'], ['CS 501', 'CS 513', 'CS 545'], '3.44'], [
+            '10115', 'Wyatt, X', 'SFEN', ['CS 545', 'SSW 564', 'SSW 567', 'SSW 687'], ['SSW 540', 'SSW 555', 'SSW 564', 'SSW 567'], ['CS 501', 'CS 513', 'CS 545'], '3.81']]
         computed_results: List[str] = list()
 
+        count: int = 2
         for record in SIT.all_students.values():
-            computed_results.append(record.fetch_student_records())
+            if count > 0:
+                computed_results.append(record.fetch_student_records())
+                count = count - 1
 
         self.assertEqual(expected_result, computed_results)
 
@@ -32,10 +35,23 @@ class System_Repo_Test(unittest.TestCase):
 
         self.assertEqual(expected_result, computed_results)
 
+    def test_fetch_majors_records(self) -> None:
+        """ Test function to check if major records have been stored correctly """
+        SIT: University = University(
+            "/Users/rdshah2005/Desktop/SSW810/Assignment9/SSW-810/")
+        expected_result: List[str] = [['SFEN', ['SSW 540', 'SSW 555', 'SSW 564', 'SSW 567'], ['CS 501', 'CS 513', 'CS 545']], [
+            'SYEN', ['SYS 612', 'SYS 671', 'SYS 800'], ['SSW 540', 'SSW 565', 'SSW 810']]]
+        computed_results: List[str] = list()
+
+        for record in SIT.all_majors.values():
+            computed_results.append(record.fetch_major_records())
+
+        self.assertEqual(expected_result, computed_results)
+
     def test_fields(self) -> None:
         """ Test function to check if program raises error when no of fields are incorrect """
         file_path: str = "/Users/rdshah2005/Desktop/SSW810/Assignment9/SSW-810/Test_files"
-        with self.assertRaises(TypeError):
+        with self.assertRaises(KeyError):
             University(file_path)
 
     def test_duplicates(self) -> None:

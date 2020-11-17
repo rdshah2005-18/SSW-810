@@ -1,6 +1,7 @@
-98765	Einstein, A	
-98764	Feynman, R	
-98763	Newton, I	
-98762	Hawking, S	
-98761	Edison, A	
-98760	Darwin, C	
+CWID|Instructor|Dept
+98765|Einstein, A	
+98764|Feynman, R	
+98763|Newton, I	
+98762|Hawking, S	
+98761|Edison, A	
+98760|Darwin, C	
