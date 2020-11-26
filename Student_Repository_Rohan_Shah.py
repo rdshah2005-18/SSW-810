@@ -115,6 +115,7 @@ class University:
         self.all_students: Dict[str, Student] = dict()
         self.all_instructors: Dict[str, Instructor] = dict()
         self.all_majors: Dict[str, Major] = dict()
+        self.grade_summary: List[str] = []
         self.fetch_majors()
         self.fetch_students()
         self.fetch_instructors()
@@ -244,6 +245,7 @@ class University:
             try:
                 for row in db.execute("select  s.Name, s.CWID, g.course, g.grade, i.Name as Instructor from students s  join grades g  join instructors i where s.CWID = g.StudentCWID and  g.InstructorCWID = i.CWID order by s.Name"):
                     pretty.add_row(row)
+                    self.grade_summary.append(row)
             except sqlite3.Error as e:
                 print(e)
         print(pretty)

@@ -3,4 +3,4 @@
 98763	Newton, I	SFEN
 98762	Hawking, S	SYEN
 98761	Edison, A	SYEN
-98760	Darwin, C	SYEN
+98761	Edison, A	SYEN
