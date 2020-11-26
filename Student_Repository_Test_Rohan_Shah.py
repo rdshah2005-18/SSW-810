@@ -10,8 +10,8 @@ class System_Repo_Test(unittest.TestCase):
         """ Test function to check if student records have been stored correctly """
         SIT: University = University(
             "/Users/rdshah2005/Desktop/SSW810/Assignment9/SSW-810", "/Users/rdshah2005/Desktop/SSW810/Assignment9/SSW-810/Hw11.db")
-        expected_result: List[str] = [['10103', 'Baldwin, C', 'SFEN', ['CS 501', 'SSW 564', 'SSW 567', 'SSW 687'], ['SSW 540', 'SSW 555', 'SSW 564', 'SSW 567'], ['CS 501', 'CS 513', 'CS 545'], '3.44'], [
-            '10115', 'Wyatt, X', 'SFEN', ['CS 545', 'SSW 564', 'SSW 567', 'SSW 687'], ['SSW 540', 'SSW 555', 'SSW 564', 'SSW 567'], ['CS 501', 'CS 513', 'CS 545'], '3.81']]
+        expected_result: List[str] = [['10103', 'Jobs, S', 'SFEN', ['CS 501', 'SSW 810'], ['SSW 540', 'SSW 555', 'SSW 810'], ['CS 501', 'CS 546'], '3.38'], [
+            '10115', 'Bezos, J', 'SFEN', ['CS 546', 'SSW 810'], ['SSW 540', 'SSW 555', 'SSW 810'], ['CS 501', 'CS 546'], '2.00']]
         computed_results: List[str] = list()
 
         count: int = 2
@@ -39,8 +39,8 @@ class System_Repo_Test(unittest.TestCase):
         """ Test function to check if major records have been stored correctly """
         SIT: University = University(
             "/Users/rdshah2005/Desktop/SSW810/Assignment9/SSW-810/", "/Users/rdshah2005/Desktop/SSW810/Assignment9/SSW-810/Hw11.db")
-        expected_result: List[str] = [['SFEN', ['SSW 540', 'SSW 555', 'SSW 564', 'SSW 567'], ['CS 501', 'CS 513', 'CS 545']], [
-            'SYEN', ['SYS 612', 'SYS 671', 'SYS 800'], ['SSW 540', 'SSW 565', 'SSW 810']]]
+        expected_result: List[str] = [['SFEN', ['SSW 540', 'SSW 555', 'SSW 810'], ['CS 501', 'CS 546']], [
+            'CS', ['CS 546', 'CS 570'], ['SSW 565', 'SSW 810']]]
         computed_results: List[str] = list()
 
         for record in SIT.all_majors.values():
